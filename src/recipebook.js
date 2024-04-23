@@ -104,6 +104,7 @@ const recipesData = [
   },
 ];
 
+//Displays individual recipe details that will be on the card
 const Recipe = ({ recipe, toggleFavorite }) => (
   <div className="recipe-box">
     <div className="recipe-image">
@@ -128,6 +129,7 @@ const Recipe = ({ recipe, toggleFavorite }) => (
   </div>
 );
 
+//Displays a list of recipes
 const RecipeList = ({ recipes, toggleFavorite }) => (
   <div className="recipe-list">
     {recipes.map((recipe) => (
@@ -159,18 +161,21 @@ const Search = ({ onChange }) => (
   </div>
 );
 
+// Main RecipeBook component
 const RecipeBook = () => {
-  const [filter, setFilter] = useState("");
-  const [search, setSearch] = useState("");
-  const [recipes, setRecipes] = useState(recipesData);
-  const [showingFavorites, setShowingFavorites] = useState(false);
+  const [filter, setFilter] = useState(""); // State for filtering recipes
+  const [search, setSearch] = useState(""); // State for searching recipes
+  const [recipes, setRecipes] = useState(recipesData); // State for storing recipes
+  const [showingFavorites, setShowingFavorites] = useState(false); // State for storing recipes
 
+  // Filter recipes based on type, search query, and showing favorites
   const filteredRecipes = recipes.filter((recipe) => {
-    if (filter && recipe.type !== filter) return false;
+    if (filter && recipe.type !== filter) return false; //If a filter is applied and the recipe type doesn't match the filter, exclude it
     if (search && !recipe.name.toLowerCase().includes(search.toLowerCase()))
-      return false;
+      return false; //If a search query is provided and the recipe name doesn't contain the search query, exclude it
+
     if (showingFavorites && !recipe.favorite) return false;
-    return true;
+    return true; // If the recipe passes all conditions, include it in the filtered recipes list
   });
 
   const handleFilterChange = (event) => {
@@ -224,4 +229,7 @@ const RecipeBook = () => {
   );
 };
 
+/*onChange: This is an event handler commonly used with form elements like <input> and <select>. It fires whenever the value of the input or select element changes.
+handleFilterChange: This is a function passed as a prop to the <Filter> component. It is triggered when the user selects a different option in the filter dropdown menu.
+handleSearchChange: Similar to handleFilterChange, this function is passed as a prop to the <Search> component and is triggered when the user types into the search input field. */
 export default RecipeBook;

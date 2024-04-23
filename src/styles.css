@@ -1,3 +1,5 @@
+/* =======================================================H1 "RECIPE BOOK"=========================================================== */
+
 .hero-section {
   background-size: cover;
   background-position: center;
@@ -6,11 +8,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #000;
+  color: #0c0c0f;
   text-align: center;
   font-size: 36px;
 }
 
+/* ======================================================ARRAY OF RECIPES IN CARDS===================================================== */
 .recipe-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -20,6 +23,7 @@
   margin-top: 50px;
 }
 
+/* =========================================================SINGULAR CARD STYLING======================================================= */
 .recipe-box {
   background: #f5f5fa;
   box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.2);
@@ -56,11 +60,11 @@
 .recipe-title {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #000;
+  color: #0c0c0f;
   margin-top: 1px;
 }
 
-/* Filter styles */
+/* ============================================================FILTER================================================================ */
 .filter-container {
   margin-bottom: 20px;
   display: flex;
@@ -78,14 +82,6 @@ select {
   font-size: 14px;
   border: 1px solid #fa8072;
   border-radius: 4px;
-}
-
-input[type="text"] {
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #fa8072;
-  border-radius: 4px;
-  width: 500px;
 }
 
 button.favorite {
@@ -106,4 +102,13 @@ button {
 
 button:hover {
   background-color: #c41e3a;
+}
+
+/* ===============================================================SEARCH=============================================================== */
+input[type="text"] {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #fa8072;
+  border-radius: 4px;
+  width: 500px;
 }
